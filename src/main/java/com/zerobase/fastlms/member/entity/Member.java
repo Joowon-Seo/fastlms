@@ -1,12 +1,17 @@
-package com.zerobase.fastlms.member;
+package com.zerobase.fastlms.member.entity;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import java.time.LocalDateTime;
 
-
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 @Data
 @Entity
 public class Member {
@@ -19,4 +24,7 @@ public class Member {
     private String password;
     private LocalDateTime regDt;
 
+    private boolean emailAuthYn;
+    private LocalDateTime emailAuthDt;
+    private String emailAuthKey;
 }
