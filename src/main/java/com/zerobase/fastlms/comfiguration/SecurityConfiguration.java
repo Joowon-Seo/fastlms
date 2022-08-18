@@ -41,8 +41,18 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers("/"
                         , "/member/register"
                         , "/member/email-auth"
+                        , "/member/find/password"
+                        , "/member/reset/password"
                 )
                 .permitAll();
+
+//        http.authorizeRequests()
+//                .antMatchers("/**")
+//                .authenticated();
+
+//        http.authorizeRequests()
+//                .anyRequest()
+//                .authenticated();
 
         http.formLogin()
                 .loginPage("/member/login")
@@ -56,6 +66,19 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
         super.configure(http);
     }
+
+//    @Override
+//    public void configure(WebSecurity web) throws Exception {
+//        web
+//                .ignoring()
+//                .antMatchers(
+//                        "/"
+//                        , "/member/register"
+//                        , "/member/email-auth"
+//                        , "member/find/password"
+//                );
+//        super.configure(web);
+//    }
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
