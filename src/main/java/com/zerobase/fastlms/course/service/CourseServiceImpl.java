@@ -113,6 +113,19 @@ public class CourseServiceImpl implements CourseService {
     }
 
     @Override
+    public List<CourseDto> frontList(CourseParam parameter) {
+
+        if (parameter.getCategoryId() < 1){
+            List<Course> courseList = courseRepository.findAll();
+            return CourseDto.of(courseList);
+        }
+
+        Optional<List<Course>> optionalCourses = courseRepository.findByCategoryId(parameter.getCategoryId());
+        return optionalCourses.map(CourseDto::of).orElse(null);
+
+    }
+
+    @Override
     public List<CourseDto> list(CourseParam parameter) {
 
         long totalCount = courseMapper.selectListCount(parameter);
