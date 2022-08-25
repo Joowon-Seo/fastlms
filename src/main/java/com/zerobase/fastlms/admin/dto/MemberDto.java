@@ -1,4 +1,4 @@
-package com.zerobase.fastlms.course.dto.admin.dto;
+package com.zerobase.fastlms.admin.dto;
 
 import com.zerobase.fastlms.member.entity.Member;
 import lombok.AllArgsConstructor;
@@ -33,6 +33,10 @@ public class MemberDto {
     boolean adminYn;
     String userStatus;
 
+    private String zipcode;
+    private String addr;
+    private String addrDetail;
+
     long totalCount;
     long seq;
 
@@ -52,6 +56,10 @@ public class MemberDto {
                 .resetPasswordLimitDt(member.getResetPasswordLimitDt())
                 .adminYn(member.isAdminYn())
                 .userStatus(member.getUserStatus())
+
+                .zipcode(member.getZipcode())
+                .addr(member.getAddr())
+                .addrDetail(member.getAddrDetail())
                 .build();
 
     }

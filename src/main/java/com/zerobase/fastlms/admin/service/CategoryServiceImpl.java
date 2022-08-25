@@ -1,10 +1,10 @@
-package com.zerobase.fastlms.course.dto.admin.service;
+package com.zerobase.fastlms.admin.service;
 
-import com.zerobase.fastlms.course.dto.admin.dto.CategoryDto;
-import com.zerobase.fastlms.course.dto.admin.entity.Category;
-import com.zerobase.fastlms.course.dto.admin.mapper.CategoryMapper;
+import com.zerobase.fastlms.admin.entity.Category;
+import com.zerobase.fastlms.admin.mapper.CategoryMapper;
+import com.zerobase.fastlms.admin.dto.CategoryDto;
 import com.zerobase.fastlms.comfiguration.model.CategoryInput;
-import com.zerobase.fastlms.course.dto.admin.repository.CategoryRepository;
+import com.zerobase.fastlms.admin.repository.CategoryRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;

@@ -1,4 +1,4 @@
-package com.zerobase.fastlms.course.dto.admin.controller;
+package com.zerobase.fastlms.admin.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

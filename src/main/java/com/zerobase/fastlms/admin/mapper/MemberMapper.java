@@ -1,6 +1,6 @@
-package com.zerobase.fastlms.course.dto.admin.mapper;
+package com.zerobase.fastlms.admin.mapper;
 
-import com.zerobase.fastlms.course.dto.admin.dto.MemberDto;
+import com.zerobase.fastlms.admin.dto.MemberDto;
 import com.zerobase.fastlms.comfiguration.model.MemberParam;
 import org.apache.ibatis.annotations.Mapper;
 

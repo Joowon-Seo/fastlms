@@ -1,7 +1,7 @@
 package com.zerobase.fastlms.member.service.impl;
 
-import com.zerobase.fastlms.course.dto.admin.dto.MemberDto;
-import com.zerobase.fastlms.course.dto.admin.mapper.MemberMapper;
+import com.zerobase.fastlms.admin.dto.MemberDto;
+import com.zerobase.fastlms.admin.mapper.MemberMapper;
 import com.zerobase.fastlms.comfiguration.model.MemberParam;
 import com.zerobase.fastlms.components.MailComponents;
 import com.zerobase.fastlms.course.model.ServiceResult;
@@ -261,6 +261,9 @@ public class MemberServiceImpl implements MemberService {
         Member member = optionalMember.get();
 
         member.setPhone(parameter.getPhone());
+        member.setZipcode(parameter.getZipcode());
+        member.setAddr(parameter.getAddr());
+        member.setAddrDetail(parameter.getAddrDetail());
         member.setUdtDt(LocalDateTime.now());
         memberRepository.save(member);
 

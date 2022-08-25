@@ -1,6 +1,6 @@
-package com.zerobase.fastlms.course.dto.admin.dto;
+package com.zerobase.fastlms.admin.dto;
 
-import com.zerobase.fastlms.course.dto.admin.entity.Category;
+import com.zerobase.fastlms.admin.entity.Category;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

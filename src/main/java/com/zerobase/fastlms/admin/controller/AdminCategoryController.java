@@ -1,9 +1,9 @@
-package com.zerobase.fastlms.course.dto.admin.controller;
+package com.zerobase.fastlms.admin.controller;
 
-import com.zerobase.fastlms.course.dto.admin.dto.CategoryDto;
+import com.zerobase.fastlms.admin.dto.CategoryDto;
 import com.zerobase.fastlms.comfiguration.model.CategoryInput;
 import com.zerobase.fastlms.comfiguration.model.MemberParam;
-import com.zerobase.fastlms.course.dto.admin.service.CategoryService;
+import com.zerobase.fastlms.admin.service.CategoryService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

@@ -1,6 +1,6 @@
-package com.zerobase.fastlms.course.dto.admin.repository;
+package com.zerobase.fastlms.admin.repository;
 
-import com.zerobase.fastlms.course.dto.admin.entity.Category;
+import com.zerobase.fastlms.admin.entity.Category;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface CategoryRepository extends JpaRepository<Category, Long> {
