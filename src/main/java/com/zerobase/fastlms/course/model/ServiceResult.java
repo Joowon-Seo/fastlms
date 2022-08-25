@@ -9,4 +9,18 @@ public class ServiceResult {
     String message;
 
 
+    public ServiceResult(boolean result, String message) {
+        this.result = result;
+        this.message = message;
+
+
+    }
+
+    public ServiceResult(boolean result) {
+        this.result = result;
+    }
+
+    public ServiceResult() {
+
+    }
 }
