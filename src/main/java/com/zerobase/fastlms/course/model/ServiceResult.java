@@ -21,6 +21,6 @@ public class ServiceResult {
     }
 
     public ServiceResult() {
-
+        this.result = true;
     }
 }
