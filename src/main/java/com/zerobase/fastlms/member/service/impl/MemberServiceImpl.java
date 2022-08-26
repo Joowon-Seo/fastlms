@@ -360,6 +360,8 @@ public class MemberServiceImpl implements MemberService {
             grantedAuthorities.add(new SimpleGrantedAuthority("ROLE_ADMIN"));
         }
 
+        System.out.println("로그인 성공");
+
         return new User(member.getUserId(), member.getPassword(), grantedAuthorities);
     }
 }

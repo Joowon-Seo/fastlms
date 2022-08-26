@@ -7,7 +7,6 @@ import com.zerobase.fastlms.course.service.TakeCourseService;
 import com.zerobase.fastlms.member.model.MemberInput;
 import com.zerobase.fastlms.member.model.ResetPasswordInput;
 import com.zerobase.fastlms.member.service.MemberService;
-import com.zerobase.fastlms.util.PasswordUtils;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -43,13 +42,11 @@ public class MemberController {
 
         boolean result = false;
         try {
-             result = memberService.sendResetPassword(parameter);
-        } catch (Exception e){
+            result = memberService.sendResetPassword(parameter);
+        } catch (Exception e) {
 
         }
         model.addAttribute("result", result);
-
-
 
 
         return "/member/find_password_result";
@@ -99,14 +96,14 @@ public class MemberController {
 
     @PostMapping("/member/info")
     public String memberInfoSubmit(Model model
-            ,MemberInput parameter , Principal principal) {
+            , MemberInput parameter, Principal principal) {
 
         String userId = principal.getName();
         parameter.setUserId(userId);
 
         ServiceResult result = memberService.updateMember(parameter);
 
-        if (!result.isResult()){
+        if (!result.isResult()) {
             model.addAttribute("message", result.getMessage());
 
             return "common/error";
@@ -129,13 +126,13 @@ public class MemberController {
 
     @PostMapping("/member/password")
     public String memberPasswordSubmit(Model model
-            , MemberInput parameter ,Principal principal) {
+            , MemberInput parameter, Principal principal) {
 
         String userId = principal.getName();
         parameter.setUserId(userId);
         ServiceResult result = memberService.updateMemberPassword(parameter);
 
-        if (!result.isResult()){
+        if (!result.isResult()) {
             model.addAttribute("message", result.getMessage());
             return "common/error";
         }
@@ -178,7 +175,7 @@ public class MemberController {
         boolean result = false;
         try {
             result = memberService.resetPassword(parameter.getId(), parameter.getPassword()); // 여기서의 id는 uuid
-        } catch (Exception e){
+        } catch (Exception e) {
 
         }
 
@@ -190,22 +187,22 @@ public class MemberController {
     }
 
     @GetMapping("/member/withdraw")
-    public String memberWithdraw(Model model){
+    public String memberWithdraw(Model model) {
 
         return "member/withdraw";
     }
 
     @PostMapping("/member/withdraw")
     public String memberWithdraw(Model model
-        , Principal principal
-        , MemberInput parameter){
+            , Principal principal
+            , MemberInput parameter) {
 
 
         String userId = principal.getName();
 
         ServiceResult result = memberService.withdraw(userId, parameter.getPassword());
 
-        if (!result.isResult()){
+        if (!result.isResult()) {
             model.addAttribute("message", result.getMessage());
             return "common/error";
         }
