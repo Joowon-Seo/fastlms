@@ -186,6 +186,14 @@ public class CourseServiceImpl implements CourseService {
     }
 
     @Override
+    public List<CourseDto> listAll() {
+
+        List<Course> courseList = courseRepository.findAll();
+
+        return CourseDto.of(courseList);
+    }
+
+    @Override
     public List<CourseDto> list(CourseParam parameter) {
 
         long totalCount = courseMapper.selectListCount(parameter);

@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
@@ -7,18 +6,22 @@
 
     <sql id="selectListWhere">
 
+        <if test="searchCourseId > 0">
+            and c.id = #{searchCourseId}
+        </if>
+
     </sql>
 
     <select id="selectListCount" resultType="long">
-
         select count(*)
-        from take_course
-        where 1=1
-        <include refid="selectListWhere"></include>
+        from take_course tc
+        join course c on tc.course_id = c.id
+        join member m on tc.user_id = m.user_id
+        where 1 = 1
+        <include refid="selectListWhere"/>
     </select>
 
     <select id="selectList" resultType="com.zerobase.fastlms.course.dto.TakeCourseDto">
-
         select tc.*
         , c.subject
         , m.user_name
@@ -30,10 +33,9 @@
         <include refid="selectListWhere"/>
         order by reg_dt desc
         limit #{pageStart}, #{pageEnd}
-
     </select>
 
-<!--    userId에 해당하는 수강 내역 목록-->
+    <!-- userId에 해당하는 수강신청 정보 -->
     <select id="selectListMyCourse" resultType="com.zerobase.fastlms.course.dto.TakeCourseDto">
         select tc.*
              , c.subject
@@ -43,6 +45,5 @@
         order by reg_dt desc
 
     </select>
-
 
 </mapper>
