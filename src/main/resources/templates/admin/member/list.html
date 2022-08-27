@@ -85,6 +85,9 @@
                     <th>
                         관리자여부
                     </th>
+                    <th>
+                        최근 로그인
+                    </th>
                 </tr>
             </thead>
             <tbody>
@@ -108,6 +111,9 @@
                         <p th:if="${x.adminYn}">Y</p>
                         <p th:if="${x.adminYn eq false}">N</p>
                     </td>
+                <td>
+                    <p th:text="${x.lastLoginDtText}">2022.08.01</p>
+                </td>
                 </tr>
             </tbody>
         </table>

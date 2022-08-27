@@ -40,6 +40,8 @@ public class MemberDto {
     long totalCount;
     long seq;
 
+    LocalDateTime lastLoginDt;
+
     public static MemberDto of(Member member){
 
         return MemberDto.builder()
@@ -60,6 +62,8 @@ public class MemberDto {
                 .zipcode(member.getZipcode())
                 .addr(member.getAddr())
                 .addrDetail(member.getAddrDetail())
+
+                .lastLoginDt(member.getLastLoginDt())
                 .build();
 
     }
@@ -74,6 +78,12 @@ public class MemberDto {
 
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy.MM.dd HH:mm:ss");
         return udtDt != null ? udtDt.format(formatter) : "";
+    }
+
+    public String getLastLoginDtText(){
+
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy.MM.dd HH:mm:ss");
+        return lastLoginDt != null ? lastLoginDt.format(formatter) : "";
     }
 
 }
