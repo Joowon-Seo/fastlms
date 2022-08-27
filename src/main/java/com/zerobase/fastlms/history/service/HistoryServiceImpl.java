@@ -1,6 +1,5 @@
 package com.zerobase.fastlms.history.service;
 
-import com.zerobase.fastlms.admin.dto.MemberDto;
 import com.zerobase.fastlms.history.entity.LoginHistory;
 import com.zerobase.fastlms.history.repository.LoginHistoryRepository;
 import lombok.RequiredArgsConstructor;
@@ -8,11 +7,10 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 
 import java.util.List;
-import java.util.Optional;
 
 @RequiredArgsConstructor
 @Service
-public class HistoryServiceImpl implements HistoryService{
+public class HistoryServiceImpl implements HistoryService {
 
     private final LoginHistoryRepository loginHistoryRepository;
 
@@ -25,7 +23,7 @@ public class HistoryServiceImpl implements HistoryService{
         List<LoginHistory> list = loginHistoryRepository.findAllByUserId(userId);
         if (!CollectionUtils.isEmpty(list)) {
             int i = 0;
-            for(LoginHistory x : list) {
+            for (LoginHistory x : list) {
                 x.setTotalCount(totalCount);
                 x.setSeq(totalCount - i);
                 i++;
