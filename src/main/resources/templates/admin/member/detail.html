@@ -4,14 +4,23 @@
     <meta charset="UTF-8">
     <title>관리자 화면</title>
     <style>
-        .detail table {
+        .detail table{
             width: 100%;
             border-collapse: collapse;
         }
 
-        .detail table th, .detail table td{
+        .detail table th, .detail table td {
             border:solid 1px #000;
         }
+
+        .list table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .list table th, .list table td {
+            border:solid 1px #000;
+        }
+
 
     </style>
 </head>
@@ -104,10 +113,39 @@
             <a th:href="list.do">목록</a>
         </div>
 
-
-
     </div>
 
+    <div class="list">
+        <table >
+            <thead>
+            <tr>
+                <th>NO</th>
+                <th>
+                    로그인 일자
+                </th>
+                <th>
+                    접속 IP
+                </th>
+                <th>
+                    접속 UserAgent
+                </th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="x, i : ${list}">
+                <td th:text="${x.seq}">1</td>
+                <td th:text="${x.getloginDtText}">1</td>
+                <td th:text="${x.ip}">1</td>
+                <td th:text="${x.userAgent}">1</td>
+            </tr>
+            <tr th:if="${#lists.size(list) < 1}">
+                <td colspan="5">
+                    <p class="nothing">내용이 없습니다.</p>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
 
 
 </body>

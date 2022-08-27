@@ -10,6 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -26,4 +27,15 @@ public class LoginHistory {
     private LocalDateTime loginDt;
     private String ip;
     private String userAgent;
+
+    private long totalCount;
+    private long seq;
+
+    public String getloginDtText(){
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy.MM.dd HH:mm:ss");
+        return loginDt != null ? loginDt.format(formatter) : "";
+    }
+
 }
+
+
