@@ -1,13 +1,44 @@
 <!doctype html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:width="http://www.w3.org/1999/xhtml">
     <head>
-        <meta charset="UTF-8">
-        <title>Document</title>
+        <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+        <title>메인 페이지</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
+        <script type="text/javascript">
+            //<![CDATA[
+            $(document).ready(function(){
+                $('.bxslider').bxSlider({
+                    touchEnabled : false // 하이퍼링크 연동이 안되는 것을 해결
+                });
+            });
+            //]]>
+        </script>
+
     </head>
     <body>
-        <h1> 메인 페이지</h1>
+        <h1>메인 페이지</h1>
 
         <div th:replace="/fragments/layout.html::fragment-body-menu"></div>
+
+        <div class="home--slider">
+            <div class="bxslider">
+                <div th:each="x : ${list}" >
+                    <a th:href="@{${x.urlPath}}"
+                        th:target="${x.howOpen eq 'NEW_PAGE'} ? '_blank' : '_self'">
+                        <img th:src="${x.urlFilename}" style="width:400px; text-align: center;"
+                            th:alt="${x.bannerName}">
+                    </a>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
 
 
     </body>

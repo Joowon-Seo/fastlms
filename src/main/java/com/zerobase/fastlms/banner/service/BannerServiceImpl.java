@@ -117,4 +117,11 @@ public class BannerServiceImpl implements BannerService {
 
         return true;
     }
+
+    @Override
+    public List<BannerDto> frontList() {
+        Optional<List<Banner>> optionalBannerList = bannerRepository.findAllByUsingYnIsTrueOrderBySortValueDesc();
+
+        return optionalBannerList.map(BannerDto::of).orElse(null);
+    }
 }

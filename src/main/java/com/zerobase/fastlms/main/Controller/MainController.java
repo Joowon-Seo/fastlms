@@ -1,28 +1,41 @@
 package com.zerobase.fastlms.main.Controller;
 
+import com.zerobase.fastlms.banner.dto.BannerDto;
+import com.zerobase.fastlms.banner.service.BannerService;
 import com.zerobase.fastlms.components.MailComponents;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
+
 @RequiredArgsConstructor
 @Controller
 public class MainController {
 
     private final MailComponents mailComponents;
+    private final BannerService bannerService;
 
     @RequestMapping("/")
-    public String index(){
+    public String index(Model model){
 
 //        String email = "tjwndnjs1998@gmail.com";
 //        String subject = "안녕하세요. 제로베이스 입니다.";
 //        String text = "<p>안녕하세요.</p><p>반갑습니다.</p>";
 
 //        mailComponents.sendMail(email, subject, text);
+
+
+
+        // 슬라이드 배너 만들기
+        List<BannerDto> list = bannerService.frontList();
+        model.addAttribute("list", list);
+
 
         return "index"; // return 되는 문자열은 파일명이라고 약속함
     }
