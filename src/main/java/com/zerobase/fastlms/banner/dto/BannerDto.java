@@ -22,12 +22,13 @@ public class BannerDto {
     String bannerName;
     String imagePath;
     String urlPath;         // 클릭시 이동하는 곳
+    String howOpen;
     int sortValue;          // 정렬 순서
     boolean usingYn;        // 사용 여부
     LocalDateTime regDt;    //등록일(추가날짜)
 
     String filename;
-    String urlFilename;
+    String urlFilename;     // 파일 저장되는 곳
 
     long totalCount;
     long seq;
@@ -38,6 +39,7 @@ public class BannerDto {
                 .id(banner.getId())
                 .bannerName(banner.getBannerName())
                 .imagePath(banner.getImagePath())
+                .howOpen(banner.getHowOpen())
                 .urlPath(banner.getUrlPath())
                 .sortValue(banner.getSortValue())
                 .usingYn(banner.isUsingYn())
